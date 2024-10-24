@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
 
 // Struktur untuk menyimpan informasi zodiak
@@ -41,16 +39,26 @@ string tentukanZodiak(int tanggal, int bulan) {
 }
 
 int main() {
-    int tanggal, bulan, tahun;
+    char ulang;
 
-    cout << "Tanggal Lahir Anda [tgl-bln-tahun]: ";
-    // Mengubah input untuk menerima format tgl-bln-tahun
-    char pemisah; // Variabel untuk menyimpan karakter pemisah
-    cin >> tanggal >> pemisah >> bulan >> pemisah >> tahun;
+    do {
 
-    string zodiakAnda = tentukanZodiak(tanggal, bulan);
+        int tanggal, bulan, tahun;
+        cout << "Tanggal Lahir Anda [tgl-bln-tahun]: ";
+        char pemisah;
+        cin >> tanggal >> pemisah >> bulan >> pemisah >> tahun;
 
-    cout << "Zodiak Anda adalah: " << zodiakAnda << endl;
+        string zodiakAnda = tentukanZodiak(tanggal, bulan);
 
+        cout << "Zodiak Anda   : " << zodiakAnda << endl;
+
+
+        cout << "Ingin mencoba lagi? (y/t): ";
+        cin >> ulang;
+        cout << endl;
+
+    } while (ulang == 'y' || ulang == 'Y');
+
+    cout << "Terima kasih telah menggunakan program ini!\n";
     return 0;
 }
